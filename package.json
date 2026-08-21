@@ -15,7 +15,11 @@
     "web-ele-iter": "npx playwright test tests/demo/web.element.iteration.make.apt.spec.ts --headed",
     "inventory": "npx playwright test tests/functional/inventory.spec.ts --headed",
     "make-apt": "npx playwright test tests/functional/make_appointment.spec.ts --headed",
-    "login": "npx playwright test tests/functional/better_login.spec.ts --headed"
+    "login": "npx playwright test tests/functional/better_login.spec.ts --headed",
+    "debug:trace": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --trace on",
+    "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.make.aptmnt.spec.ts",
+    "debug:ui": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --ui --headed",
+    "debug": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --headed"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
