@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import process from 'process';
 
 /**
  * Read environment variables from file.
@@ -22,7 +23,27 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'],['allure-playwright']],
+  reporter: [
+    [
+      "html",
+      {
+        open: "never",  /* Reporter html never opens automatically after test run */
+      },
+    ],
+    [
+      "allure-playwright",  /* below additional info to display in the allure report */
+      {
+        detail: true,
+        suiteTitle: true,
+        environmentInfo: {
+          name: "TEST_QA",
+          appName: "CURA web_site",
+          Release: "Release 1.1",
+          node_version: process.version,
+        },
+      },
+    ],
+  ],,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
