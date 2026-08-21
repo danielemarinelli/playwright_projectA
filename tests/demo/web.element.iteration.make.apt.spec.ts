@@ -21,15 +21,15 @@ test.describe("Make Appointment", () => {
          * 
          * 
          * ## Pro Tips
-- ✅ Use `.click()` for most button and link interactions - it's the most reliable method.
-- ✅ Use `.press('Enter')` as an alternative to clicking, especially for accessibility testing.
-- ✅ Use `.hover()` to trigger hover states before clicking if needed for dropdown menus.
-- ✅ Use `.dblclick()` for elements that require double-click activation.
-- ✅ Set custom timeouts with `{timeout: 5000}` for slow-loading elements.
-- ✅ Right-click with `{button: 'right'}` to test context menus.
+        - ✅ Use `.click()` for most button and link interactions - it's the most reliable method.
+        - ✅ Use `.press('Enter')` as an alternative to clicking, especially for accessibility testing.
+        - ✅ Use `.hover()` to trigger hover states before clicking if needed for dropdown menus.
+        - ✅ Use `.dblclick()` for elements that require double-click activation.
+        - ✅ Set custom timeouts with `{timeout: 5000}` for slow-loading elements.
+        - ✅ Right-click with `{button: 'right'}` to test context menus.
 
----
-         */
+        ---
+                */
 
         // 2. Click on the Make Appointment
         // await page.getByRole("link", { name: "Make Appointment" }).click();
