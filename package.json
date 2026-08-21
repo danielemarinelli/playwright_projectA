@@ -1,0 +1,25 @@
+{
+  "name": "playwright_projecta",
+  "version": "1.0.0",
+  "description": "playwright tests with AI incl MCP",
+  "keywords": [
+    "playwright",
+    "playwright-mcp"
+  ],
+  "license": "ISC",
+  "author": "Daniele Marinelli",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "demo": "npx playwright test tests/demo --headed",
+    "login": "npx playwright test tests/functional --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
+    "allure-playwright": "^3.10.2"
+  },
+  "dependencies": {
+    "@playwright/mcp": "^0.0.79"
+  }
+}
