@@ -24,6 +24,7 @@ test.describe("Make Appointment", () => {
     * 1. click on the testing icon on the left colunm, inserting a breakpoint in the test code, and then running the test in debug mode. The test will pause at the breakpoint, allowing you to inspect the state of the application and step through the code.
     * 2. Using the playwright test runner UI (npx playwright test --ui) and press PLAY in the new window. This will open a browser window where you can interact with the application and see the test results in real-time.
     * 3. Using the playwright inspector (PWDEBUG=1) . with "debug:cli" in the scripts section of package.json. This will open a browser window where you can interact with the application and see the test results in real-time.
+    *    you can move step by step from the window pop-up. you can also use the "pause()" [line 40 on our code, cancel comment] method in your test code to pause the test execution at a specific point and inspect the state of the application.
     * 4. Using the playwright trace viewer --> with "npm run debug:trace" in the scripts section of package.json (npx playwright show-trace <trace.zip>)
     *  
     * 
