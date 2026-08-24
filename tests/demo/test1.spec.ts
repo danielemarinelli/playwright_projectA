@@ -10,3 +10,8 @@ test("Should load home page with correct title", async ({ page }) => {
     // Assert header text
     await expect(page.locator('//h1')).toHaveText('CURA Healthcare Service')
 });
+
+
+test.only("Should demo fixtures", async ({ page, browserName }, testInfo) => {
+    console.log(`>> Test runs on ${browserName}`);
+});
