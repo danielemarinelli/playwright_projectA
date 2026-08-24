@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { log } from "../helpers/logger.js";
 
-test.describe("Make Appointment", () => {
+test.describe("Make Appointment",{annotation: {type: "functional",description: "US-xxx: Test to make an appointment"}}, () => {
     test.beforeEach("Login with valid creds", async ({ page }, testInfo) => {
         // 1. Launch URL and assert title and header
 
@@ -30,7 +30,7 @@ test.describe("Make Appointment", () => {
     });
 
 
-    test("Should make an appointment with non-default values", async ({ page }, testInfo) => {
+    test("Should make an appointment with non-default values",{annotation: {type: "bug",description: "Defect: Test does not run in firefox"},tag:"@smoke"}, async ({ page }, testInfo) => {
         
         // console.log(`>> Current config \n: ${JSON.stringify(testInfo.config)}`);
         
