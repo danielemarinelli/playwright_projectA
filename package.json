@@ -12,6 +12,7 @@
   "main": "index.js",
   "scripts": {
     "demo": "npx playwright test tests/demo/test1.spec.ts --headed",
+    "tag:smoke": "npx playwright test --grep @smoke --headed",
     "screenshot-on-failure": "npx playwright test tests/demo/failure.screenshot.make.appointment.spec.ts --headed",
     "web-ele-iter": "npx playwright test tests/demo/web.element.iteration.make.apt.spec.ts --headed",
     "inventory": "npx playwright test tests/functional/inventory.spec.ts --headed",
