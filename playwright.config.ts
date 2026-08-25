@@ -62,17 +62,27 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { //...devices['Desktop Chrome'],
+        viewport: null,
+        launchOptions: {
+          args: ['--start-maximized'],  /* Launch the browser in maximized mode */
+        },
+      },
     },
-
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { //...devices['Desktop Firefox'],
+        viewport: null,
+        launchOptions: {
+          
+          args: ['--start-maximized'],  /* Launch the browser in maximized mode */
+        },
+       },
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari']},
     },
 
     /* Test against mobile viewports. */
