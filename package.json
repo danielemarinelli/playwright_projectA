@@ -8,17 +8,21 @@
   ],
   "license": "ISC",
   "author": "Daniele Marinelli",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "demo:parallel": "npx playwright test --grep @demo",
     "demo": "npx playwright test tests/demo/test1.spec.ts --headed",
+    "demo:param": "npx playwright test tests/demo/parametrized.make.apt.spec.ts --headed",
     "tag:smoke": "npx playwright test --grep @smoke --headed",
     "screenshot-on-failure": "npx playwright test tests/demo/failure.screenshot.make.appointment.spec.ts --headed",
     "web-ele-iter": "npx playwright test tests/demo/web.element.iteration.make.apt.spec.ts --headed",
     "inventory": "npx playwright test tests/functional/inventory.spec.ts --headed",
-    "make-apt": "npx playwright test tests/functional/make_appointment.spec.ts --headed",
+    "make-apt": "npx playwright test tests/functional/make.appointment.spec.ts --headed",
+    "test-config:make-apt": "npx playwright test --config=config/test.playwright.config.ts tests/functional/make.appointment.spec.ts --headed",
+    "dev-config:make-apt": "npx playwright test --config=config/dev.playwright.config.ts tests/functional/make.appointment.spec.ts --headed",
     "demo:hooks": "npx playwright test tests/demo/hooks.demo.spec.ts --headed",
-    "login": "npx playwright test tests/functional/better-login.spec.ts --headed",
+    "login": "npx playwright test --config=config/test.playwright.config.ts tests/functional/better-login.spec.ts --headed",
+    "demo:global-settings": "npx playwright test tests/functional/better-login.spec.ts",
     "debug:trace": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --trace on",
     "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.make.aptmnt.spec.ts",
     "debug:ui": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --ui --headed",
@@ -26,8 +30,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0",
-    "allure-playwright": "^3.10.2"
+    "@types/node": "^26.5.0",
+    "allure-playwright": "^3.10.2",
+    "dotenv": "^17.4.2"
   },
   "dependencies": {
     "@playwright/mcp": "^0.0.79"
