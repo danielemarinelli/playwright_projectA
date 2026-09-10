@@ -6,14 +6,15 @@ import { config } from 'process';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export const baseConfig = defineConfig({
+//export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -23,6 +24,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
+  globalSetup: require.resolve("./tests/helpers/global-setup.ts"),
+  globalTeardown: require.resolve("./tests/helpers/global-teardown.ts"),
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     [
@@ -62,21 +65,20 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { //...devices['Desktop Chrome'],
-        viewport: null,
-        launchOptions: {
-          args: ['--start-maximized'],  /* Launch the browser in maximized mode */
-        },
+      use: { ...devices['Desktop Chrome'],
+        //viewport: null,
+        //launchOptions: {
+        //  args: ['--start-maximized'],  /* Launch the browser in maximized mode */
+        //},
       },
     },
     {
       name: 'firefox',
-      use: { //...devices['Desktop Firefox'],
-        viewport: null,
-        launchOptions: {
-          
-          args: ['--start-maximized'],  /* Launch the browser in maximized mode */
-        },
+      use: { ...devices['Desktop Firefox'],
+        //viewport: null,
+       // launchOptions: {
+       //   args: ['--start-maximized'],  /* Launch the browser in maximized mode */
+       // },
        },
     },
 
@@ -84,6 +86,10 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari']},
     },
+    {
+      name: 'Galaxy A55',
+      use: { ...devices['Galaxy A55'] },
+    }
 
     /* Test against mobile viewports. */
     // {
