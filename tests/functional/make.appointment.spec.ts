@@ -7,11 +7,11 @@ test.describe("Make Appointment",{annotation: {type: "functional",description: "
 
         // Get the URL from config file
         const envConfig = testInfo.project.use as any;
-
-        // Custom logs
-        await log("info", `Launching the web app in ${envConfig.envName}`)
-
-        await page.goto("https://katalon-demo-cura.herokuapp.com/");
+        await log("info", `Launching the web app in ${envConfig.envName}`)  // Custom logs
+        // Get URL file from config file (test.playwright.config.ts)    best practice!
+        await page.goto(envConfig.appURL);
+        //  URL hardcoded not good practice!
+        //await page.goto("https://katalon-demo-cura.herokuapp.com/"); 
         await expect(page).toHaveTitle("CURA Healthcare Service");
         await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
 
@@ -20,8 +20,12 @@ test.describe("Make Appointment",{annotation: {type: "functional",description: "
         await expect(page.getByText("Please login to make")).toBeVisible();
 
         // Successful login
-        await page.getByLabel("Username").fill("John Doe");
-        await page.getByLabel("Password").fill("ThisIsNotAPassword");
+        //await page.getByLabel("Username").fill("John Doe");
+        //await page.getByLabel("Password").fill("ThisIsNotAPassword");
+        // Get the username and password from .env file (secure sensitive data using .env)    best practice!
+        await page.getByLabel("Username").fill(process.env.TEST_USER_NAME);
+        await page.getByLabel("Password").fill(process.env.TEST_USER_PASSWORD);
+
         await page.getByRole("button", { name: "Login" }).click();
 
         // Assert a text
@@ -30,7 +34,7 @@ test.describe("Make Appointment",{annotation: {type: "functional",description: "
     });
 
 
-    test("Should make an appointment with non-default values",{annotation: {type: "bug",description: "Defect: Test does not run in firefox"},tag:"@smoke"}, async ({ page }, testInfo) => {
+    test("Should make an appointment with non-default values",{annotation: {type: "bug",description: "Defect: Test does not run in firefox"}}, async ({ page }, testInfo) => {
         
         // console.log(`>> Current config \n: ${JSON.stringify(testInfo.config)}`);
         
