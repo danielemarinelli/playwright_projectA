@@ -1,0 +1,4 @@
+testId,facility,hcp,visitDt,comment
+TC001,"Tokyo CURA Healthcare Center",Medicare,15/07/2026,"This is a comment from the parametrized file test-data.ts!"
+TC002,"Hongkong CURA Healthcare Center",Medicaid,07/06/2026,"This is the second comment from the parametrized file test-data.ts!"
+TC003,"Seoul CURA Healthcare Center",None,29/03/2026,"This is a third and last comment from the parametrized file test-data.ts!"
