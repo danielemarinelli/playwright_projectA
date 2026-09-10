@@ -1,5 +1,7 @@
 import { test as base } from "@playwright/test";
 
+// stores environment specific configuration keys
+
 export type EnvConfig = {
     envName: string;
     appURL: string;
