@@ -11,5 +11,5 @@ logs/
 *.log
 example.*
 /debug
-allure-results
+allure*
 
