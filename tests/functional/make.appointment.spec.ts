@@ -7,7 +7,10 @@ test.describe("Make Appointment",{annotation: {type: "functional",description: "
 
         // Get the URL from config file
         const envConfig = testInfo.project.use as any;
-        await log("info", `Launching the web app in ${envConfig.envName}`)  // Custom logs
+
+        // Custom logs from helpers/logger.ts
+        await log("info", `Launching the web app in ${envConfig.envName}`)  
+
         // Get URL file from config file (test.playwright.config.ts)    best practice!
         await page.goto(envConfig.appURL);
         //  URL hardcoded not good practice!
