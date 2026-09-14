@@ -1,6 +1,7 @@
 {
   "name": "playwright_projecta",
   "version": "1.0.0",
+  "type": "module",
   "description": "playwright tests with AI incl MCP",
   "keywords": [
     "playwright",
@@ -32,6 +33,8 @@
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.5.0",
     "allure-playwright": "^3.10.2",
+    "chalk": "^6.0.0",
+    "csv-parse": "^7.0.2",
     "dotenv": "^17.4.2"
   },
   "dependencies": {
