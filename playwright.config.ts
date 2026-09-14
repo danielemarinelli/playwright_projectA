@@ -8,6 +8,11 @@ import { config } from 'process';
  */
 import dotenv from 'dotenv';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
@@ -24,8 +29,8 @@ export const baseConfig = defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
-  globalSetup: require.resolve("./tests/helpers/global-setup.ts"),
-  globalTeardown: require.resolve("./tests/helpers/global-teardown.ts"),
+  globalSetup: path.resolve(process.cwd(), "tests/helpers/global-setup.ts"),
+  globalTeardown: path.resolve(process.cwd(), "tests/helpers/global-teardown.ts"),
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     [
