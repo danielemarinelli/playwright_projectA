@@ -23,6 +23,7 @@
     "dev-config:make-apt": "npx playwright test --config=config/dev.playwright.config.ts tests/functional/make.appointment.spec.ts --headed",
     "demo:hooks": "npx playwright test tests/demo/hooks.demo.spec.ts --headed",
     "login": "npx playwright test --config=config/test.playwright.config.ts tests/functional/better-login.spec.ts --headed",
+    "login:e2e": "npx playwright test --config=config/test.playwright.config.ts tests/e2e/nopcommerce.e2e.spec.ts --headed",
     "demo:global-settings": "npx playwright test tests/functional/better-login.spec.ts",
     "debug:trace": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --trace on",
     "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.make.aptmnt.spec.ts",
