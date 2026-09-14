@@ -1,6 +1,8 @@
 import { test } from "@playwright/test";
 import chalk from "chalk";
 
+// install chalk with: npm i --save-dev chalk
+
 type Level = "log" | "info" | "warn" | "error";
 
 export async function log(level: Level, message: string) {
