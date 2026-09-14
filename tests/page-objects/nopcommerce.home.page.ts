@@ -3,7 +3,7 @@ import BasePage from "./base.page.js";
 import { log } from "../helpers/logger.js";
 
 export default class HomePage extends BasePage {
-    
+
     // Constructor
     constructor(page: Page) {
         super(page);
@@ -21,7 +21,7 @@ export default class HomePage extends BasePage {
     }
 
     /** Page Actions */
-    async loginToNopeCommerceApp(url: string, username: string, password: string) {
+    async loginToNopCommerceApp(url: string, username: string, password: string) {
         await log("info", `Login to ${url}`);
         // Login
         await this.navigateTo(url);
