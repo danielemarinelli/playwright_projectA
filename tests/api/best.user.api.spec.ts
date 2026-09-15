@@ -2,6 +2,7 @@ import {test, expect, request} from "@playwright/test";
 import { log } from "../helpers/logger.js";
 import constants from "../../data/constants.json" with { type: "json" };
 import TestData from "../../data/test-data.js";
+import fileHelper from "../helpers/file-actions.js";
 
 
 
@@ -29,6 +30,9 @@ test.describe("REST API Tests Demo", () => {
         //Get list of users
         const userData = await resp.json()
         await log("info", `List of users: ${JSON.stringify(userData)}`)
+
+        // Write the list of users to a file in the data folder, so that it can be used in other tests as well. The file will be created if it does not exist, and overwritten if it does exist.
+        fileHelper.writeFile(`${process.cwd()}/data/api-response/GET-call-list-of-users.json`, `${JSON.stringify(userData, undefined, 4)}`);
     });
 
     test("Should create a new user", async({request}) => {
