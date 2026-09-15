@@ -24,6 +24,7 @@
     "demo:hooks": "npx playwright test tests/demo/hooks.demo.spec.ts --headed",
     "login": "npx playwright test --config=config/test.playwright.config.ts tests/functional/better-login.spec.ts --headed",
     "login:e2e": "npx playwright test --config=config/test.playwright.config.ts tests/e2e/nopcommerce.e2e.spec.ts --headed",
+    "login:api": "npx playwright test --config=config/test.playwright.config.ts tests/api/user.api.spec.ts",
     "demo:global-settings": "npx playwright test tests/functional/better-login.spec.ts",
     "debug:trace": "npx playwright test tests/demo/debug.make.aptmnt.spec.ts --trace on",
     "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.make.aptmnt.spec.ts",
