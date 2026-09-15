@@ -26,4 +26,16 @@ export default class TestData {
         ];
     }
 
+    static apiUserCreation() {
+        // returns an array of objects
+        return [
+            {
+                "name": "Josh Allen",
+                "job": "NFL Quarterback",
+                "id": "17",
+                "createdAt": "2026-09-05T12:00:00.000Z",
+            }
+        ];
+    }
+
 }    
